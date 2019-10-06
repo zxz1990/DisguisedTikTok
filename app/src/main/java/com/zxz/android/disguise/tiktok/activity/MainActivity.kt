@@ -1,18 +1,16 @@
 package com.zxz.android.disguise.tiktok.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
 import com.zxz.android.disguise.tiktok.R
-import com.zxz.android.disguise.tiktok.adapter.VideoFlowViewPagerAdapter
+import com.zxz.android.disguise.tiktok.adapter.VideoViewPagerAdapter2
 import com.zxz.android.disguise.tiktok.model.Model
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
+class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
 
-    private val mAdapter = VideoFlowViewPagerAdapter(this)
+    private val mAdapter = VideoViewPagerAdapter2(this)
     private val mViewPager by lazy { view_pager }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,18 +22,6 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
     private fun initView() {
         mViewPager.adapter = mAdapter
-        mViewPager.addOnPageChangeListener(this)
-    }
-
-    override fun onPageScrollStateChanged(state: Int) {
-
-    }
-
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-    }
-
-    override fun onPageSelected(position: Int) {
-        Log.i(TAG, "onPageSelected position=$position")
     }
 
     private fun initData() {
@@ -49,7 +35,6 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        mViewPager.clearOnPageChangeListeners()
     }
 
 
