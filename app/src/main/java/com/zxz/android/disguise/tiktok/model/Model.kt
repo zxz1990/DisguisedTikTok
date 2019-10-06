@@ -25,7 +25,32 @@ object Model {
         R.raw.video_12,
         R.raw.video_13,
         R.raw.video_14,
-        R.raw.video_15
+        R.raw.video_16,
+        R.raw.video_17,
+        R.raw.video_18,
+        R.raw.video_19,
+        R.raw.video_20,
+        R.raw.video_21,
+        R.raw.video_22,
+        R.raw.video_23,
+        R.raw.video_24,
+        R.raw.video_25,
+        R.raw.video_26,
+        R.raw.video_27,
+        R.raw.video_28,
+        R.raw.video_29,
+        R.raw.video_30,
+        R.raw.video_31,
+        R.raw.video_32,
+        R.raw.video_33,
+        R.raw.video_34,
+        R.raw.video_35,
+        R.raw.video_36,
+        R.raw.video_37,
+        R.raw.video_38,
+        R.raw.video_39,
+        R.raw.video_40,
+        R.raw.video_41
     )
 
     fun getVideoUrlById(context: Context, @RawRes id: Int): Uri {
