@@ -1,6 +1,7 @@
 package com.zxz.android.disguise.tiktok.activity
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.zxz.android.disguise.tiktok.R
 import com.zxz.android.disguise.tiktok.adapter.VideoViewPagerAdapter2
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setContentView(R.layout.activity_main)
         initView()
         initData()
