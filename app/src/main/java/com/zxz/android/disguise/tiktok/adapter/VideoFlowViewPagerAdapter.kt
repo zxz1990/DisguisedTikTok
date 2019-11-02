@@ -22,7 +22,7 @@ class VideoFlowViewPagerAdapter(private val activity: AppCompatActivity) :
         list.forEach { uri ->
             val videoDetailFragment = VideoDetailFragment(activity)
             videoDetailFragment.arguments = Bundle().apply {
-                putParcelable(Consts.KEY_URI, uri)
+                putParcelable(Consts.KEY_VIDEO_DATA, uri)
             }
             mFragments.add(videoDetailFragment)
         }

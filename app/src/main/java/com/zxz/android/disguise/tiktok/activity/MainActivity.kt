@@ -27,9 +27,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        val videoList = Model.videoResList.map { resId ->
-            Model.getVideoUrlById(this, resId)
-        }
+//        val shuffledList = Model.videoResList.shuffled()
+//        val videoList = shuffledList.map { resId ->
+//            Model.getVideoUrlById(this, resId)
+//        }
+        val videoList = Model.getVideoUrls(this)
         mAdapter.setVideoData(videoList)
         mAdapter.notifyDataSetChanged()
     }

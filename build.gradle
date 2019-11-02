@@ -2,6 +2,7 @@
 
 buildscript {
     ext.kotlin_version = '1.3.50'
+    ext.ijkplayer_version = '0.8.8'
     repositories {
         google()
         jcenter()

@@ -30,6 +30,7 @@ class VideoDetailFragment(private val activity: AppCompatActivity) :
     }
 
     override fun createPresenter(): VideoDetailMVPPresenter {
+
         return VideoDetailMVPPresenter(this)
     }
 
@@ -50,6 +51,7 @@ class VideoDetailFragment(private val activity: AppCompatActivity) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.i(TAG, "onViewCreated")
+        videoView.videoData = presenter.getVideoData()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +65,7 @@ class VideoDetailFragment(private val activity: AppCompatActivity) :
         if (view != null) {
 //            Log.i(TAG, "setUserVisibleHint $userVisibleHint")
             if (userVisibleHint) {
-                videoView.uri = presenter.getUri()
+                videoView.videoData = presenter.getVideoData()
                 videoView.start()
             } else {
 //                videoView.stop()

@@ -57,6 +57,7 @@ class TextureVideoView : TextureView {
     private var isStop = true
     private var playPos: Int = 0
     var uri: Uri? = null // http: file:
+    var onStartPlayListener: (()->Unit)? = null
 
     private val onPreparedListener = object : MediaPlayer.OnPreparedListener {
         override fun onPrepared(mp: MediaPlayer) {
@@ -68,6 +69,8 @@ class TextureVideoView : TextureView {
                 mp.seekTo(playPos)
             }
             mp.start()
+            onStartPlayListener?.invoke()
+            Log.i(TAG,"onPrepared")
             //更新播放时间
             mHandler.sendEmptyMessageDelayed(MSG_UPDATE_POSITION, 200)
         }
@@ -178,7 +181,14 @@ class TextureVideoView : TextureView {
         isStop = false
         //设置播放的数据源
         try {
-            mPlayer?.setDataSource(context, uri)
+            val path = uri?.path
+            if (path?.startsWith("/android_asset/") == true) {
+                val fileName = path.substring("/android_asset/".length, path.length)
+                val afd = context.assets.openFd(fileName)
+                mPlayer?.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
+            } else {
+                mPlayer?.setDataSource(context, uri)
+            }
             //2、进入initialized状态
             //准备
             mPlayer?.prepareAsync()
@@ -210,7 +220,7 @@ class TextureVideoView : TextureView {
         } else {
             if (mPlayer?.isPlaying != true) {
 //                setDataAndPlay(uri)
-                mPlayer?.start()
+//                mPlayer?.start()
                 mHandler.sendEmptyMessageDelayed(MSG_UPDATE_POSITION, 200)
             }
         }
