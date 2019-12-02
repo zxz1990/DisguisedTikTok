@@ -10,8 +10,8 @@ android {
         applicationId "com.zxz.android.disguise.tiktok"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 100001 //格式abbccc
+        versionName "1.0.1" //对应格式a.b.c
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
