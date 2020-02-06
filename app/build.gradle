@@ -7,7 +7,7 @@ apply plugin: "kotlin-android-extensions"
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.zxz.android.disguise.tiktok"
+        applicationId "com.zxz.android.disguise.tiktok1"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 100001 //格式abbccc
